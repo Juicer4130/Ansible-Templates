@@ -1,6 +1,7 @@
 ---
 - name: Test templating
   hosts: cisco:nxos:arista
+  gather_facts: no
   tasks:
     - template:
         src: test_template_2.j2

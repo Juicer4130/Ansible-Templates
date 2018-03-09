@@ -13,26 +13,27 @@ pynet-rtr2 ansible_host=184.105.247.71
 username=pyclass
 password=88newclass
 
-[arista]
+[arista-spines]
 veos-1 ansible_host=10.0.255.163
 veos-2 ansible_host=10.0.255.164
-#veos-9 ansible_host=192.168.7.1
-#veos-10 ansible_host=192.168.7.221
 
-[arista:vars]
+[arista-spines:vars]
 eapi_port=443
 username=kgiusti
 password=Br0wnz
 
 [arista-vteps]
-veos-1 ansible_host=10.0.255.163
-#veos-9 ansible_host=192.168.7.1
-#veos-10 ansible_host=192.168.7.221
+veos-9 ansible_host=192.168.7.1
+veos-10 ansible_host=192.168.7.221
 
 [arista-vteps:vars]
 eapi_port=443
 username=kgiusti
 password=Br0wnz
+
+[arista:children]
+arista-spines
+arista-vteps
 
 [nxos]
 nxos1 ansible_host=nxos1.twb-tech.com
